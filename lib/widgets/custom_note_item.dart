@@ -1,57 +1,71 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app/views/edit_note_view.dart';
 
 class CustomNoteItem extends StatelessWidget {
   const CustomNoteItem({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(top: 25, bottom: 25, left: 25, right: 25),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: Color(0xffFDCD80),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          ListTile(
-            contentPadding: EdgeInsets.all(0),
-            title: Text(
-              'Flutter Tips',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 28,
-              ),
-            ),
-            subtitle: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: Text(
-                'Build your Career with Khaled ElBaiomy',
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          CupertinoPageRoute(
+            builder: (context) {
+              return EditNoteView();
+            },
+          ),
+        );
+      },
+      child: Container(
+        padding: EdgeInsets.only(top: 25, bottom: 25, left: 25, right: 25),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: Color(0xffFDCD80),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            ListTile(
+              contentPadding: EdgeInsets.all(0),
+              title: Text(
+                'Flutter Tips',
                 style: TextStyle(
-                  color: Color(0xffA7794A),
-                  fontSize: 18,
+                  color: Colors.black,
+                  fontSize: 28,
                 ),
               ),
+              subtitle: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                child: Text(
+                  'Build your Career with Khaled ElBaiomy',
+                  style: TextStyle(
+                    color: Color(0xffA7794A),
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              trailing: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  FontAwesomeIcons.trash,
+                  color: Colors.black,
+                  size: 24,
+                ),
+              ),
+              isThreeLine: true,
             ),
-            trailing: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                FontAwesomeIcons.trash,
-                color: Colors.black,
-                size: 24,
+            Text(
+              'May 16,2025',
+              style: TextStyle(
+                color: Color(0xffA7794A),
+                fontSize: 16,
               ),
             ),
-            isThreeLine: true,
-          ),
-          Text(
-            'May 16,2025',
-            style: TextStyle(
-              color: Color(0xffA7794A),
-              fontSize: 16,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
