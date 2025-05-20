@@ -7,6 +7,9 @@ class AddNoteSheetBottom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(
+          height: 50,
+        ),
         TextField(
           decoration: InputDecoration(
             border: OutlineInputBorder(
